@@ -99,7 +99,7 @@ else:
 __all__ = ['target_to_source', 'chain_break_frequency', 'embed_ising',
            'edgelist_to_adjacency',
            'unembed_samples',
-           'discard', 'majority_vote', 'weighted_random', 'minimize_energy',
+           'discard', 'majority_vote', 'weighted_random', 'MinimizeEnergy',
            'chain_to_quadratic']
 
 __version__ = '0.3.0'
