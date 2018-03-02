@@ -1,7 +1,18 @@
+import sys
+import os
 from setuptools import setup
 
-from dwave_embedding_utilities import __version__, __author__, __description__, __authoremail__
+# add __version__, __author__, __authoremail__, __description__ to this namespace
+_PY2 = sys.version_info.major == 2
 
+# change directories so this works when called from other locations. Useful in build systems.
+setup_folder_loc = os.path.dirname(os.path.abspath(__file__))
+os.chdir(setup_folder_loc)
+
+if _PY2:
+    execfile(os.path.join(".", "dwave", "embedding", "utilities", "package_info.py"))
+else:
+    exec(open(os.path.join(".", "dwave", "embedding", "utilities", "package_info.py")).read())
 
 setup(
     name='dwave_embedding_utilities',

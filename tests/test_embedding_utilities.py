@@ -6,7 +6,7 @@ import networkx as nx
 import dwave_networkx as dnx
 import dimod
 
-import dwave_embedding_utilities as eutil
+import dwave.embedding.utilities as eutil
 
 
 class TestTargetToSource(unittest.TestCase):
