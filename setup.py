@@ -1,6 +1,6 @@
 import sys
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 _PY2 = sys.version_info.major == 2
 
@@ -24,10 +24,6 @@ install_requires = ['dimod>=0.5.0,<0.6.0',
 # Any extra requirements, to be used by pip install PACKAGENAME['keyname']
 extras_require = {}
 
-# The packages in this repo that are to be installed. Either list these explictly, or use setuptools.find_packages. If
-# the latter, take care to filter unwanted packages (e.g. tests)
-packages = ['dwave.embedding.utilities']
-
 setup(
     name='dwave_embedding_utilities',
     version=__version__,
@@ -37,9 +33,8 @@ setup(
     long_description=open('README.rst').read(),
     url='https://github.com/dwavesystems/dwave_embedding_utilities',
     license='Apache 2.0',
-    packages=packages,
+    packages=find_packages(exclude=['tests']),
     install_requires=install_requires,
     extras_require=extras_require,
-    # Required to make this a namespace package. If this package is at lower level, include all packages above it.
-    namespace_packages=['dwave', 'dwave.embedding']
+    zip_safe=False,
 )
